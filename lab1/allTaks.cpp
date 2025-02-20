@@ -1,22 +1,25 @@
-#include<iostream>
+#include <iostream>
+
 using namespace std;
 
-int findHCF(int num1, int num2);  // Function prototype for HCF
-int findLCM(int num1, int num2);  // Function prototype for LCM
+int findHCF(int num1, int num2);
+int findLCM(int num1, int num2); // Function prototype for LCM
 
-void findFactorial() {
+void findFactorial()
+{
     int factorial = 1;
     int num;
     cout << "Enter the number: ";
     cin >> num;
-    for (int i = num; i > 0; i--) {
+    for (int i = num; i > 0; i--)
+    {
         factorial *= i;
     }
 
     cout << "Factorial is: " << factorial << endl;
 }
-
-void findFibonacci() {
+void findFibonacci()
+{
     int fnum, snum, range;
 
     cout << "Enter first number: ";
@@ -30,7 +33,8 @@ void findFibonacci() {
 
     int third = 0;
 
-    for (int i = 1; i <= range; i++) {
+    for (int i = 1; i <= range; i++)
+    {
         third = fnum + snum;
         cout << i << " number is " << third << endl;
         fnum = snum;
@@ -38,26 +42,30 @@ void findFibonacci() {
     }
 }
 
-void findReverse() {
+void findReverse()
+{
     int num = 0;
     cout << "Enter the number: ";
     cin >> num;
 
-    if (num == 0) {
+    if (num == 0)
+    {
         cout << num << endl;
         return;
     }
 
     cout << "Reversed Number: " << endl;
-    while (num != 0) {
-        int digt = num % 10;
-        cout << digt;
+    while (num != 0)
+    {
+        int digit = num % 10;
+        cout << digit;
         num /= 10;
     }
     cout << endl;
 }
 
-void findHcfLcm() {
+void findHcfLcm()
+{
     int count = 0;
 
     cout << "Enter the number of elements: ";
@@ -66,14 +74,16 @@ void findHcfLcm() {
     int values[count];
 
     cout << "Enter the numbers one by one: ";
-    for (int i = 0; i < count; i++) {
+    for (int i = 0; i < count; i++)
+    {
         cin >> values[i];
     }
 
     int hcfResult = values[0];
     int lcmResult = values[0];
 
-    for (int i = 1; i < count; i++) {
+    for (int i = 1; i < count; i++)
+    {
         hcfResult = findHCF(hcfResult, values[i]);
         lcmResult = findLCM(lcmResult, values[i]);
     }
@@ -82,32 +92,41 @@ void findHcfLcm() {
     cout << "The LCM of the given numbers is: " << lcmResult << endl;
 }
 
-int findHCF(int num1, int num2) {
+int findHCF(int num1, int num2)
+{
     int smallest;
-    if (num1 < num2) {
+    if (num1 < num2)
+    {
         smallest = num1;
-    } else {
+    }
+    else
+    {
         smallest = num2;
     }
 
     int hcf = 1;
-    for (int i = 1; i <= smallest; i++) {
-        if (num1 % i == 0 && num2 % i == 0) {
+    for (int i = 1; i <= smallest; i++)
+    {
+        if (num1 % i == 0 && num2 % i == 0)
+        {
             hcf = i;
         }
     }
     return hcf;
 }
 
-int findLCM(int num1, int num2) {
+int findLCM(int num1, int num2)
+{
     return (num1 * num2) / findHCF(num1, num2);
 }
 
-int main() {
+int main()
+{
     int choice;
     bool exit = false;
 
-    while (!exit) {
+    while (!exit)
+    {
         cout << "\nSelect an option: \n";
         cout << "1. Find Factorial\n";
         cout << "2. Find Fibonacci Series\n";
@@ -117,24 +136,25 @@ int main() {
         cout << "Enter your choice: ";
         cin >> choice;
 
-        switch (choice) {
-            case 1:
-                findFactorial();
-                break;
-            case 2:
-                findFibonacci();
-                break;
-            case 3:
-                findReverse();
-                break;
-            case 4:
-                findHcfLcm();
-                break;
-            case 5:
-                exit = true;
-                break;
-            default:
-                cout << "Invalid choice. Please try again.\n";
+        switch (choice)
+        {
+        case 1:
+            findFactorial();
+            break;
+        case 2:
+            findFibonacci();
+            break;
+        case 3:
+            findReverse();
+            break;
+        case 4:
+            findHcfLcm();
+            break;
+        case 5:
+            exit = true;
+            break;
+        default:
+            cout << "Invalid choice. Please try again.\n";
         }
     }
 
